@@ -1,6 +1,6 @@
 TARGET := euler_007.elf
 
-SRC := main.c
+SRC := main_007.c
 
 CFLAGS := -pedantic -Wall -Wextra  
 CFLAGS += -Wno-coverage-mismatch  -Wdouble-promotion
@@ -28,7 +28,7 @@ all: $(SRC)  Makefile
 
 clean: 
 	-rm $(TARGET)
-	-rm *~  main.su
+	-rm *~  *.su
 	-rm core*
 
 
