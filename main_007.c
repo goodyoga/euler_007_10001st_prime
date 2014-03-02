@@ -2,15 +2,45 @@
 
 #include <stdio.h>    /* printf */
 #include <stdlib.h>   /* atoi,exit   */
+#include <stdbool.h>  /* bool */
 #include <string.h>   /* strlen  */
 #include <unistd.h>   /* getopt */
 
+
+/**
+ * @file main_007.c
+ * @addtogroup  EULER_007  Euler_007_10001st_prime
+ * @{
+ */
+
+/**
+ * 
+ * @param argc
+ * @param argv
+ * @return 0
+ */
+int main(int argc, char **argv);
+
+/**
+ * @brief to see if it is prime or not.
+ * 
+ * @param primes pointer to the array of primes.
+ * @param ind current size of array
+ * @param cur the number to check
+ * @param all show printf() if non 0.
+ * @return
+ */
+bool is_prime(unsigned long long int *primes, unsigned long long int ind, unsigned long long int cur, int all);
+
+
+/// @brief shows usage.
 void usage(void);
-char *prog;
 
-int is_prime(unsigned long long int *primes, unsigned long long int ind, unsigned long long int cur, int all);
+/** @} */
 
-int is_prime(unsigned long long int *primes, unsigned long long int ind, unsigned long long int cur, int all)
+
+
+bool is_prime(unsigned long long int *primes, unsigned long long int ind, unsigned long long int cur, int all)
 {
     unsigned long long int i;
     unsigned long long int amari;
@@ -21,11 +51,11 @@ int is_prime(unsigned long long int *primes, unsigned long long int ind, unsigne
         if (0 == amari)
         {
             if (all) printf("check  : cur=%llu, index=%llu is not prime.\n", cur, ind);
-            return 0;
+            return false;
         }
     }
     if (all) printf("check  : cur=%llu, index=%llu is a prime.\n", cur, ind);
-    return 1;
+    return true;
 }
 
 int main(int argc, char **argv)
@@ -38,7 +68,6 @@ int main(int argc, char **argv)
     char *p;
     size_t size;
 
-    prog = argv[0];
     max = 10001;
 
     while ( -1 != (opt = getopt(argc, argv, "ahn:")) )
